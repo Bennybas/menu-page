@@ -1,153 +1,295 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import '../../../size_config.dart';
 
 class DiscountBanner extends StatelessWidget {
-  const DiscountBanner({
-    Key? key,
-  }) : super(key: key);
-
+  static String routeName = "/home";
   @override
   Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-class Categories extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    List<Map<String, dynamic>> categories = [
-      {"icon": "assets/icons/Flash Icon.svg", "text": "Factory View"},
-      {"icon": "assets/icons/Bill Icon.svg", "text": "Overall View"},
-      {"icon": "assets/icons/Game Icon.svg", "text": "Dashboard"},
-      {"icon": "assets/icons/Gift Icon.svg", "text": "Group View"},
-    ];
-
-    return Container(
-      padding: EdgeInsets.all(getProportionateScreenWidth(20)),
-      decoration: BoxDecoration(
-        color: Color(0xFFF8BBD0),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: List.generate(
-          categories.length,
-          (index) => CategoryCard(
-            icon: categories[index]["icon"],
-            text: categories[index]["text"],
-            press: () {},
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class CategoryCard extends StatelessWidget {
-  const CategoryCard({
-    Key? key,
-    required this.icon,
-    required this.text,
-    required this.press,
-  }) : super(key: key);
-
-  final String? icon, text;
-  final GestureTapCallback press;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: press,
-      child: SizedBox(
-        width: getProportionateScreenWidth(55),
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.all(getProportionateScreenWidth(15)),
-              height: getProportionateScreenWidth(55),
-              width: getProportionateScreenWidth(55),
-              decoration: BoxDecoration(
-                color: Color(0xFFEDE7F6),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: SvgPicture.asset(icon!),
-            ),
-            SizedBox(height: 5),
-            Text(
-              text!,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 15, color: Colors.black),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class Categorie extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    List<Map<String, dynamic>> categories = [
-      {"icon": "assets/icons/Flash Icon.svg", "text": "Factory View"},
-      {"icon": "assets/icons/Bill Icon.svg", "text": "Overall View"},
-      {"icon": "assets/icons/Game Icon.svg", "text": "Dashboard"},
-      {"icon": "assets/icons/Gift Icon.svg", "text": "Group View"},
-    ];
-
-    return Container(
-      padding: EdgeInsets.all(getProportionateScreenWidth(20)),
-      decoration: BoxDecoration(
-        color: Color(0xFFF8BBD0),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: List.generate(
-          categories.length,
-          (index) => CategoryCard(
-            icon: categories[index]["icon"],
-            text: categories[index]["text"],
-            press: () {},
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class Category extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    List<Map<String, dynamic>> categories = [
-      {"icon": "assets/icons/Flash Icon.svg", "text": "Factory View"},
-      {"icon": "assets/icons/Bill Icon.svg", "text": "Overall View"},
-      {"icon": "assets/icons/Game Icon.svg", "text": "Dashboard"},
-      {"icon": "assets/icons/Gift Icon.svg", "text": "Group View"},
-    ];
-
-    return Container(
-      padding: EdgeInsets.all(getProportionateScreenWidth(20)),
-      decoration: BoxDecoration(
-        color: Color(0xFFF8BBD0),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: List.generate(
-          categories.length,
-          (index) => CategoryCard(
-            icon: categories[index]["icon"],
-            text: categories[index]["text"],
-            press: () {},
-          ),
-        ),
-      ),
-    );
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+            backgroundColor: Colors.white,
+            body: Center(
+                child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Text("Aus Power",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0)),
+                Container(
+                  height: 130,
+                  width: 370,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                    color: Colors.white.withOpacity(0.9),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          OutlineButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.home),
+                              label: Text('')),
+                          Text(
+                            'Factory view',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          OutlineButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.location_city),
+                              label: Text('')),
+                          Text('Overall View',
+                              style: TextStyle(fontWeight: FontWeight.bold))
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          OutlineButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.location_city),
+                              label: Text('')),
+                          Text('Dashboard',
+                              style: TextStyle(fontWeight: FontWeight.bold))
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          OutlineButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.location_city),
+                              label: Text('')),
+                          Text('Group view',
+                              style: TextStyle(fontWeight: FontWeight.bold))
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 130,
+                  width: 370,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                    color: Colors.white.withOpacity(0.9),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          OutlineButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.home),
+                              label: Text('')),
+                          Text(
+                            'Factory view',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          OutlineButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.location_city),
+                              label: Text('')),
+                          Text('Overall View',
+                              style: TextStyle(fontWeight: FontWeight.bold))
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          OutlineButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.location_city),
+                              label: Text('')),
+                          Text('Dashboard',
+                              style: TextStyle(fontWeight: FontWeight.bold))
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          OutlineButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.location_city),
+                              label: Text('')),
+                          Text('Group view',
+                              style: TextStyle(fontWeight: FontWeight.bold))
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 130,
+                  width: 370,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                    color: Colors.white.withOpacity(0.9),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          OutlineButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.home),
+                              label: Text('')),
+                          Text(
+                            'Factory view',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          OutlineButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.location_city),
+                              label: Text('')),
+                          Text('Overall View',
+                              style: TextStyle(fontWeight: FontWeight.bold))
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          OutlineButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.location_city),
+                              label: Text('')),
+                          Text('Dashboard',
+                              style: TextStyle(fontWeight: FontWeight.bold))
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          OutlineButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.location_city),
+                              label: Text('')),
+                          Text('Group view',
+                              style: TextStyle(fontWeight: FontWeight.bold))
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 130,
+                  width: 370,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                    color: Colors.white.withOpacity(0.9),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          OutlineButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.home),
+                              label: Text('')),
+                          Text(
+                            'Factory view',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          OutlineButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.location_city),
+                              label: Text('')),
+                          Text('Overall View',
+                              style: TextStyle(fontWeight: FontWeight.bold))
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          OutlineButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.location_city),
+                              label: Text('')),
+                          Text('Dashboard',
+                              style: TextStyle(fontWeight: FontWeight.bold))
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          OutlineButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.location_city),
+                              label: Text('')),
+                          Text('Group view',
+                              style: TextStyle(fontWeight: FontWeight.bold))
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ))));
   }
 }
